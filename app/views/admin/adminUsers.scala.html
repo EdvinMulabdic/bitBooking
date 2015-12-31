@@ -1,0 +1,119 @@
+@import helpers.UserAccessLevel
+
+@(users: java.util.List[AppUser])
+@main {
+    <script src="@routes.Assets.versioned("javascripts/deleteConfirm.js")"></script>
+    <script src="@routes.Assets.versioned("javascripts/sort.js")"></script>
+
+    <div  id="main-background">
+        <div class="container" id="background">
+            <section id="hotel-section1" class="marginbottom">
+                <div class="container">
+                    <div class="about text-center">
+                        <h2>USERS</h2>
+                    </div>
+                </div>
+            </section>
+
+            <section class="marginbottom-admin-hotels">
+                <div class="col-md-4">
+                    <br/>
+                    <a href="@routes.Users.showAdminHotels()">
+                        <button id="hotelsbtn" class="btn-default" style="background-color:darkorange;color:white;width : 70% ; height : 100px ; font-size : 30px">
+                            Hotels
+                        </button>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <br/>
+                    <a href="@routes.Users.showAdminFeatures()">
+                        <button id="hotelsbtn" class="btn-primary" style="width : 70% ; height : 100px ; font-size : 30px">
+                            Features
+                        </button>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <br/>
+                    <a href="@routes.Questions.seeAll()">
+                        <button id="hotelsbtn" class="btn-danger" style="width : 70% ; height : 100px ; font-size : 30px">
+                            FAQ
+                        </button>
+                    </a>
+                </div>
+            </section>
+
+            <section>
+                <table class="table table-responsive" style="font-size: 45px;" id="sort">
+                    <thead>
+                        <tr class="about">
+                            <th>Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Role</th>
+                            <th>Submit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @for(user <- users) {
+                        @if(user.userAccessLevel != UserAccessLevel.ADMIN) {
+                            <tr class="about">
+                                <td>@user.firstname</td>
+                                <td>@user.lastname</td>
+                                <td>@user.email</td>
+                                @if(user.userAccessLevel == UserAccessLevel.HOTEL_MANAGER) {
+                                    <td>Hotel Manager</td>
+                                }
+                                @if(user.userAccessLevel == UserAccessLevel.SELLER) {
+                                    <td>Seller</td>
+                                }
+                                @if(user.userAccessLevel == UserAccessLevel.BUYER) {
+                                    <td>Buyer</td>
+                                }
+                                @if(user.userAccessLevel == UserAccessLevel.ADMIN) {
+                                    <td>Admin</td>
+                                }
+
+                                <form method="post" action="@routes.Users.setRole(user.email)" >
+                                    <td>
+                                        <select name="usertype" id="admin-change-role" class="form-control" onchange="@routes.Users.setRole(user.email)" required>
+                                            @if(user.userAccessLevel == UserAccessLevel.BUYER){
+                                                <option value="buyer" selected="true">Buyer</option>
+                                                <option value="seller">Seller</option>
+                                                <option value="hotelmanager">Hotel Manager</option>
+                                            }
+                                            @if(user.userAccessLevel == UserAccessLevel.HOTEL_MANAGER){
+                                                <option value="buyer">Buyer</option>
+                                                <option value="seller">Seller</option>
+                                                <option value="hotelmanager" selected="true">Hotel Manager</option>
+                                            }
+                                            @if(user.userAccessLevel == UserAccessLevel.SELLER){
+                                                <option value="buyer">Buyer</option>
+                                                <option value="seller" selected="true">Seller</option>
+                                                <option value="hotelmanager">Hotel Manager</option>
+                                            }
+                                        </select>
+
+                                    </td>
+                                    <td><button class="edvin-button-role" type="submit" style="font-size: 20px; background-color: #204d74; border-radius: 5px; width: 90px; height:40px;">CHANGE ROLE</button></td>
+                                </form>
+                                <form method="delete" action="@routes.Users.deleteUser(user.email)">
+                                    <td>
+                                        <a data-role="delete" data-delete-parent="tr" href="@routes.Users.deleteUser(user.email)" role="button">
+                                            <i class="rediconcolor fa fa-trash-o fa-lg"></i></a>
+
+                                    </td>
+                                </form>
+                            </tr>
+
+                        }
+                    }
+                    </tbody>
+                </table>
+            </section>
+
+        </div>
+        }
+</div>

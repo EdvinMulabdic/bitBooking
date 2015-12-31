@@ -1,0 +1,97 @@
+@(hotel: Hotel, features: List[HotelFeature])
+
+@import helper._
+    @main {
+        @helper.form(action = routes.Hotels.updateHotel(hotel.id), 'enctype -> "multipart/form-data") {
+
+            <div  id="main-background">
+                <div class="container" id="background">
+
+                    <section id="hotel-section1">
+                        <div class="container">
+                            <div class="about text-center">
+                                <h2>UPDATE YOUR HOTEL</h2>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="updatehotel-map">
+
+                        <form class="form">
+                            <div class="mapmargin">
+                                <input id="gLat" name="coordinateX" value="@hotel.coordinateX" readonly>
+                                <input id="gLng" name="coordinateY" value="@hotel.coordinateY" readonly>
+                                <div id="mapCanvas" class="shrinked-map"></div>
+                                <div id="infoPanel" style="display : none">
+                                    <b>Marker status:</b>
+                                    <div id="markerStatus"><i>Click and drag the marker.</i></div>
+                                    <b>Current position:</b>
+                                    <div id="info"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-md-offset-3 contact-form  ">
+                                <div class="text-center">
+                                    <h3> HOTEL INFORMATION</h3>
+                                </div>
+
+                                <div class="info-detail marginbottom">
+                                    <div class="about nomarginbottom">
+                                        <h4 for="name">Hotel name</h4>
+                                        <input name="name" class="name" type="text" placeholder="Hotel Name" value="@hotel.name" required>
+                                        <h4 for="location">Location</h4>
+                                        <input name="location" class="email" type="text" placeholder="Location" value="@hotel.location" required>
+                                        <h4 for="city" >City</h4>
+                                        <input name="city" class="email" type="text" placeholder="Location" value="@hotel.city" required>
+                                        <h4 for="country" >Country</h4>
+                                        <input name="country" class="email" type="text" placeholder="Location" value="@hotel.country" required>
+                                        <h4 for="country" >Hotel stars</h4>
+                                        <input name="stars" type="number" min="1" max="7" placeholder="Hotel stars 1-7" value="@hotel.stars"/>
+                                        <h4 for="description" >Description</h4>
+                                        <textarea class="message" name="description" id="message" placeholder="Description" style="resize : vertical" >@hotel.description</textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3 contact-form  ">
+                                    @for(feature <- features) {
+                                        <div class="form-inline">
+                                                <img src="@feature.feature.icon.getSize(38, 38)" />
+                                                <input class="form-control" type="number" min="0" max="10000" name="@feature.feature.id"
+                                                @if(feature.isFree) {
+                                                    placeholder="@feature.feature.name (leave empty if feature is free)"
+                                                } else {
+                                                    placeholder="Current feature price @feature.price $"
+                                                }
+                                                style="width: 350px;">
+                                        </div>
+                                    }
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="row" >
+                                <div class="col-md-6 col-md-offset-3 contact-form  ">
+                                    <h3>Choose pictures for gallery: </h3>
+                                    <div>
+                                        <input type="file" name="image" accept="image/*" class="form-control" multiple/>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="col-md-6 col-md-offset-3 contact-form  ">
+                                <div class="marginbottom-buttons2">
+                                    <a href="@routes.Hotels.showSellerHotels()"> <input class="submit-btn"  id="room-back" type="button" value="BACK" ></a>
+                                    <a href="@routes.Hotels.updateHotel(hotel.id)"> <input class="submit-btn"  id="add-room-submit" type="submit" value="UPDATE"></a>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+        }
+    }
+            </div>

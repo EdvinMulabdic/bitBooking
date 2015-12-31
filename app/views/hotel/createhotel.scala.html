@@ -1,0 +1,89 @@
+@import helpers.UserAccessLevel
+@(features: java.util.List[Feature])(users: java.util.List[AppUser])
+@import helper._
+@main {
+    @helper.form(action = routes.Hotels.saveHotel()) {
+        <script src='@routes.Assets.versioned("javascripts/js/bootstrap-formhelpers-countries.js")'></script>
+        <script src='@routes.Assets.versioned("javascripts/js/bootstrap-formhelpers.min.js")'></script>
+        <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/bootstrap-formhelpers.css")'>
+        <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/bootstrap-formhelpers.min.css")'>
+
+        <div  id="main-background">
+            <div class="container" id="background">
+                <form role="form">
+                    <section id="hotel-section1" class="marginbottom">
+                        <div class="container">
+                            <div class="about text-center">
+                                <h2>REGISTER YOUR HOTEL</h2>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div class="mapmargin">
+                            <input id="gLat" name="coordinateX" value="43.8534183" readonly>
+                            <input id="gLng" name="coordinateY" value="18.37808399999" readonly>
+                            <div id="mapCanvas" class="shrinked-map"></div>
+                            <div id="infoPanel" style="display : none">
+                                <b>Marker status:</b>
+                                <div id="markerStatus"><i>Click and drag the marker.</i></div>
+                                <b>Current position:</b>
+                                <div id="info"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+
+                        <div class="col-md-6 col-md-offset-3 contact-form form-group">
+                            <h3> Hotel information </h3>
+                            <div class="info-detail ">
+                                <input name="name" class="name" type="text" placeholder="Hotel Name" required>
+                                <input name="location" class="email" type="text" placeholder="Address" required>
+                                <input name="city" class="email" type="text" placeholder="City" required>
+                                <div style="">
+                                <select id="country_dropdown" class="input-medium bfh-countries" name="country" data-country="BA"></select>
+                                </div>
+                                <input name="stars" type="number" min="1" max="7" placeholder="Hotel stars 1-7"/>
+                                <textarea class="message" name="description" id="message" placeholder="Description" style="resize : vertical"></textarea>
+                            </div>
+
+
+                            <h3>Features</h3>
+                            <div class="info-detail ">
+                            @for(feature <- features) {
+                                <div class="about">
+                                    <input type="checkbox" name="@feature.id" value="@feature.id" style="width: 16px; height: 16px;">
+                                    <label  for="@feature.name">@feature.name</label>
+                                </div>
+                                @*<img src="@feature.icon.getSize(30,30)"/>*@
+
+                            }
+
+                            </div>
+
+                            <h3>Select the owner</h3>
+                            <div class="info-detail">
+                                <select class="ddlsellers" name="seller" required>
+                                    <br>
+                                    @for(user <- users) {
+                                        @if(user.userAccessLevel == UserAccessLevel.SELLER) {
+                                            <option value="@user.id" >@user.firstname @user.lastname</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                            <div id="margintop">
+                                <a href="@routes.Users.showManagerHotels()"> <input class="submit-btn" id="hotel-back" type="button" value="BACK" ></a>
+                                <input class="submit-btn" id="hotel-register" type="submit" value="REGISTER" onclick="@routes.Hotels.saveHotel()">
+                            </div>
+                        </div>
+
+                    </section>
+
+
+                </form>
+            </div>
+            }
+}
+</div>

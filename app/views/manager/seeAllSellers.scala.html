@@ -1,0 +1,63 @@
+@import helpers.UserAccessLevel
+@import models.AppUser
+@(users: List[AppUser])
+
+@main {
+
+
+  <div  id="main-background">
+    <div class="container" id="background">
+      <section id="hotel-section1" class="marginbottom">
+        <div class="container">
+          <div class="about text-center">
+            <h2>SELLERS</h2>
+          </div>
+        </div>
+      </section>
+      <section>
+        <table class="table ">
+          <thead>
+            <tr class="about">
+              <th>Name</th>
+              <th>Email</th>
+              <th>Have hotels</th>
+              <th>Is verified user</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            @for(user <- users) {
+              <tr class="about">
+                <td>@user.firstname @user.lastname</td>
+                <td>@user.email</td>
+                <td>
+                @if(AppUser.sellerHaveHotel(user)) {
+                  YES
+                } else {
+                  NO
+                }
+                </td>
+                <td style="font-size: 22px;">
+                @if(user.validated) {
+                  YES
+                } else {
+                  NO
+                }
+                </td>
+              </tr>
+            }
+
+
+
+          </tbody>
+        </table>
+        <a href="" data-toggle="modal" data-target="#invitationModal" class="button">
+          <button class="btn btn-success font-size-20" style="float: left; margin-left: 20px; margin-bottom: 20px;">Invite new seller</button>
+        </a>
+      </section>
+
+
+      </div>
+    }
+    </div>
+  @manager.sendInvitation()

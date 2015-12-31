@@ -1,0 +1,35 @@
+@(feature: Feature)
+@import helper._
+@main {
+    <div class="container">
+        <div class="row">
+        @helper.form(action = routes.Features.updateFeature(feature.id)) {
+            <div class="contact-caption clearfix">
+                <div class="contact-heading text-center">
+                    <h2>UPDATE FEATURE: @feature.name</h2>
+                </div>
+
+                <div class="col-md-6 col-md-offset-1 contact-form">
+                    <div>
+                        <label for="name" style="font-size: 20px; color:white">Name</label>
+                        <input name="name" value="@feature.name" required>
+                    </div>
+
+
+                    @*<h1>Icons</h1>*@
+
+                    <div>
+                        <button class="edvin-button" id="update-feature" name="submit" onclick="updateFeature()">UPDATE</button>
+                        <button class="edvin-button" id="back-feature" name="submit" onclick="@routes.Users.showAdminPanel()">BACK</button>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        }
+
+        </div>
+    </div>
+}

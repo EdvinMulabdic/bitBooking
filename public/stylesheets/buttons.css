@@ -1,0 +1,346 @@
+#contact-us {
+    background-color: #204d74;
+    border-radius: 5px;
+    width: 140px;
+}
+
+#search-hotels {
+    background-color : #204d74;
+    border-radius : 5px;
+    width : 140px;
+    font-size: 24px;
+}
+
+#save-profile-updates {
+    font-size : 30px;
+    background-color : #204d74 ;
+    border-radius : 5px;
+}
+
+#admin-change-role {
+    font-size: 18px;
+    height: 40px;
+    width: 100px;
+}
+
+#admin-add-feature {
+    font-size: 24px;
+    background-color: #204d74;
+    border-radius: 5px;
+    width: 140px;
+    height: 40px;
+    margin-top:20px;
+    margin-bottom: 40px;
+}
+#admin-feature-add {
+    font-size: 24px;
+    background-color: #204d74;
+    border-radius: 5px;
+    width: 140px;
+    height: 40px;
+    margin-top:40px;
+    float: right;
+}
+#admin-feature-back{
+    font-size: 24px;
+    background-color: #204d74;
+    border-radius: 5px;
+    width: 140px;
+    height: 40px;
+    margin-top:40px;
+    float: left;
+}
+#update-feature {
+    background-color: #204d74;
+    border-radius: 5px;
+    width: 80px;
+    margin-bottom: 0.2cm;
+}
+
+#back-feature {
+    background-color: #0066FF;
+    border-radius: 5px;
+    width: 80px;
+    margin-bottom: 0.2cm;
+    float: right;
+}
+
+#hotel-register {
+    background-color: #204d74;
+    font-size:24px;
+    border-radius: 5px;
+    width: 140px;
+    height: 50px;
+}
+
+#hotel-back {
+    font-size:24px;
+    float: left;
+    background-color: #204d74;
+    border-radius: 5px;
+    width: 140px;
+    height: 50px;
+}
+
+#add-room {
+    background-color:#204d74;
+    color: white;
+    font-size: 24px;
+    float: right;
+    border-radius : 5px;
+    width: 140px;
+    height: 50px;
+}
+#editroom{
+
+}
+
+#room-back {
+    background-color:#204d74;
+    border-radius : 5px;
+    width: 140px;
+    float: left;
+    font-size:24px;
+    height: 50px;
+}
+#confirm{
+    font-size : 20px;
+    background-color :  #0066FF;
+    border-radius : 5px;
+    width : 90px;
+    height : 40px ;
+    float: right;
+}
+
+#add-room-submit {
+    background-color: #204d74;
+    border-radius : 5px;
+    width: 140px;
+    font-size:24px;
+    height: 50px;
+    float: right;
+}
+#addhotel{
+    font-size:24px;
+    float: left;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    background-color: #204d74;
+    border-radius: 5px;
+    height: 50px;
+    width: 140px;
+}
+
+#add-room-back {
+    background-color: #204d74;
+    border-radius : 5px;
+    width: 140px;
+    font-size:24px;
+    height: 50px;
+    float: left;
+}
+
+#edit-room-submit {
+
+    font-size:24px;
+    background-color: #204d74;
+    border-radius: 5px;
+    width: 140px;
+    height: 50px;
+}
+#subscribe{
+    font-size:24px;
+    background-color: #204d74;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+    margin-left: 50%;
+
+}
+#edit-room-back {
+    font-size:24px;
+    background-color:#204d74;
+    border-radius : 5px;
+    width: 140px;
+    float: left;
+}
+
+#edit-room-add-price {
+    background-color: #204d74;
+    border-radius: 5px;
+    height: 45px;
+    width: 140px;
+    margin-right: 40%;
+    margin-top: 20px;
+    float: right;
+}
+
+#post-comment {
+
+    font-size:24px;
+    background-color: #204d74;
+    border-radius: 5px;
+    width: 80px;
+    height: 40px;
+    margin-bottom: 0.2cm;
+}
+
+.nav-ddl-font17 {
+    font-size: 17px;
+}
+#middlebuttons{
+    font-size: 20px;
+}
+#textcenter{
+    text-align: center;
+}
+#updatehotel{
+    font-size:24px;
+    background-color: #204d74;
+    border-radius: 5px;
+    width: 80px;
+    height: 45px;
+    float: right;
+
+}
+#btnLogin{
+    font-size: 20px;
+    width: 140px;
+    align-self: center;
+    margin-left: 22%;
+}
+.book{
+    font-size: 24px;
+    margin-top: 1em;
+    text-align: center;
+    align-content: center;
+    margin-bottom: 1em;
+    width : 140px;
+}
+.edit{
+    text-align: center;
+    align-content: center;
+    margin-left: 20px;
+    float: left;
+    height: 40px;
+    color: white;
+    margin-bottom: 40px;
+    font-size:24px;
+    background-color:#204d74;
+    border-radius : 5px;
+    width: 140px;
+}
+
+
+#back{
+    margin-bottom: 40px;
+    color: white;
+
+    font-size:24px;
+    background-color:#204d74;
+    border-radius : 5px;
+    width: 140px;
+    float: left;
+}
+#modal-button-blue {
+    background-color: #204d74;
+    border-radius: 5px;
+    height: 45px;
+    width: 100px;
+    float: right;
+    margin-right: 15px;
+}
+
+#modal-button-white {
+    background-color: white;
+    border-radius: 5px;
+    height: 45px;
+    width: 100px;
+    float: right;
+    margin-right: 15px;
+    border: 1px solid darkgray;
+    color: black;
+}
+
+#available{
+    color: #189800;
+    font-size: 25px;
+    text-align: center;
+}
+
+#not-available {
+    color : red;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.forgotten-password-a {
+    font-size: 16px;
+    color: #204d74;
+    font-weight: bold;
+}
+
+.forgotten-password-div {
+    margin-left: 15px;
+    margin-top: 15px;
+    width: 120px;
+    align-self: center;
+}
+
+.submit{
+    background-color: #204d74;
+    border-radius: 5px;
+    height: 40px;
+    width: 140px;
+}
+#submitFAQ{
+    margin-bottom: 40px;
+    margin-top: 20px;
+    background-color: #204d74;
+    border-radius: 5px;
+    height: 50px;
+    width: 140px;
+    font-size: 24px;
+}
+#addFAQ{
+    margin-bottom: 40px;
+    margin-top: 20px;
+    background-color: #204d74;
+    border-radius: 5px;
+    height: 50px;
+    width: 140px;
+    font-size: 24px;
+    float: right;
+}
+#editFAQ{
+    background-color: #204d74;
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    font-size: 24px;
+    text-align: center;
+}
+#searchFAQ{
+    background-color: #204d74;
+    border-radius: 5px;
+    height: 50px;
+    width: 140px;
+    font-size: 24px;
+    text-align: center;
+    float: left;
+    color: white;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+
+h2 {
+    text-align: center;
+}
+
+.p {
+    text-align: center;
+    padding-top: 130px;
+}
+
