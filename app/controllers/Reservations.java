@@ -42,7 +42,7 @@ public class Reservations extends Controller {
         reservation.room = room;
         reservation.user = user;
         reservation.setCreatedBy(user.firstname, user.lastname);
-        SimpleDateFormat dtf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat dtf = new SimpleDateFormat("yyyy/MM/dd");
 
         try {
             Date firstDate = dtf.parse(checkin);
